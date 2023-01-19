@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestTask.Data;
 
@@ -11,9 +12,10 @@ using TestTask.Data;
 namespace TestTask.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230119001748_AddIsReadMigration")]
+    partial class AddIsReadMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -278,8 +280,7 @@ namespace TestTask.Data.Migrations
 
             modelBuilder.Entity("TestTask.Models.Rss", b =>
                 {
-                    b.Navigation("Channel")
-                        .IsRequired();
+                    b.Navigation("Channel");
                 });
 #pragma warning restore 612, 618
         }
